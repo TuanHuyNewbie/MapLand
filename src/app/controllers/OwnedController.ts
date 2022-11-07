@@ -3,10 +3,10 @@ const infoland = require("../models/infoland");
 const users = require("../models/user");
 const erc = require("../../../landabi.json");
 import ethers = require("ethers");
-const untils = require("../../config/db/untils");
+//const untils = require("../../config/db/untils");
 import fs = require('fs');
 const owned = require("../models/owned");
-const { json } = require("express");
+//const { json } = require("express");
 
 class Owned {
   async getInfo(req:Request, res:Response, next:NextFunction): Promise<void> {

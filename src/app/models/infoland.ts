@@ -8,12 +8,12 @@ const infoland = new Schema({
     x: {type: String},
     y: {type: String},
     world: {type: String}
-}, {
-    query: {
-        byXY(x: String, y: String){
-            return this.find({x,y}) 
-        }
-    }
+//}, {
+//     query: {
+//         byXY(x: String, y: String){
+//             return this.find({x,y}) 
+//         }
+//     }
 
 
 })

@@ -1,6 +1,6 @@
 import {Request, Response, NextFunction} from 'express'
 const users = require('../models/user')
-const owned = require("../models/owned");
+//const owned = require("../models/owned");
 
 class User{
     add(req: Request, res: Response, next: NextFunction){
