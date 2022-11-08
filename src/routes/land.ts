@@ -1,12 +1,13 @@
-const cors = require('cors')
+const cors2 = require('cors')
 
 const LandController = require('../app/controllers/LandController')
-const express = require('express');
-const router = express.Router();
+const express2 = require('express');
+const router2 = express2.Router();
 
-router
-    .post('/add', cors(), LandController.add)
-    .post('/get', cors(), LandController.get)
-    .get('/delete', cors(), LandController.delete)
+router2
+    .post('/add', cors2(), LandController.add)
+    .post('/get', cors2(), LandController.get)
+    .get('/delete', cors2(), LandController.delete)
+    .get('/getall', cors2(), LandController.getall)
 
-module.exports = router
+module.exports = router2

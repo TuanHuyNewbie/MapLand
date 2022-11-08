@@ -2,6 +2,7 @@ import mongoose from "mongoose"
 const Schema = mongoose.Schema
 
 const infoland = new Schema({
+    _id: {type: Number},
     name: {type: String},
     description: {type: String},
     image: {type: String},
