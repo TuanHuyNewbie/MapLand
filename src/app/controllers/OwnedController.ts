@@ -28,7 +28,7 @@ class Owned {
 
     }
     //res.render("", data_res);
-    console.log(data_res);
+    res.send(data_res);
     
 }
 

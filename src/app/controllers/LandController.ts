@@ -11,33 +11,37 @@ const users = require('../models/user')
 class Land{
     add(req: Request, res: Response, next: NextFunction){
         const lname = req.body.name;
-    const ldescription = req.body.description;
-    const limage = req.body.image;
-    const lx = req.body.x;
-    const ly = req.body.y;
-    const lworld = req.body.world;
+        const ldescription = req.body.description;
+        const limage = req.body.image;
+        const lx = req.body.x;
+        const ly = req.body.y;
+        const lworld = req.body.world;
+        const lowner = req.body.owner;
+    
+        const land = new infoland({
+          name: lname,
+          description: ldescription,
+          image: limage,
+          x: lx,
+          y: ly,
+          world: lworld,
+        });
+        const user1 = new users({
+          address: lowner
+        }) 
 
-    const land = new infoland({
-      name: lname,
-      description: ldescription,
-      image: limage,
-      x: lx,
-      y: ly,
-      world: lworld,
-    });
-
-    const lowned = new owned({
-      land_id: land._id,
-      user_id: "0",
-    });
-
-    try {
-      lowned.save();
-      land.save();
-      res.send("Success");
-    } catch (e) {
-      res.status(400).json({ message: (e as Error).message });
-    }
+        const lowned = new owned({
+          land_id: land._id,
+          user_id: user1._id,
+        });
+        try {
+          land.save();
+          user1.save();
+          lowned.save();
+          res.send("Success");
+        } catch (e) {
+          res.status(400).json({ message: (e as Error).message });
+        }
     }
     async get(req: Request, res: Response, next: NextFunction): Promise<void> {
         //const infoland1 = model('Project',infoland)
