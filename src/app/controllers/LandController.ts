@@ -1,13 +1,11 @@
 import {Request, Response, NextFunction} from 'express'
 //import { Schema, model } from 'mongoose';
 const owned = require("../models/owned");
-import ethers = require("ethers");
+import { ethers } from 'ethers'
 const erc = require("../../../landabi.json");
 const infoland = require('../models/infoland')
+//import infoland from '../models/infoland'
 const users = require('../models/user')
-
-
-
 class Land{
     add(req: Request, res: Response, next: NextFunction){
         const lname = req.body.name;
@@ -17,7 +15,6 @@ class Land{
         const ly = req.body.y;
         const lworld = req.body.world;
         const lowner = req.body.owner;
-    
         const land = new infoland({
           name: lname,
           description: ldescription,
@@ -63,7 +60,6 @@ class Land{
             //console.log(landid)
             //const findLand = await infoland.findOne({_id: landid}).exec();
             //console.log(findLand.name)
-
             res.send(s)
             //const findOwned = await owned.findOne({land_id: landid}).exec();
             //console.log(findOwned)
@@ -75,17 +71,12 @@ class Land{
             //   owner_address: user.address,
             //   x: _x,
             //   y: _y,
-        
             // }
             // //res.render("", data_res);
             // console.log(data_res);
     }
-
-
-    async update(req: Request, res: Response, next: NextFunction){
-        
+    async update(req: Request, res: Response, next: NextFunction){   
     }
-
     async delete(req: Request, res: Response, next: NextFunction){
             let usersArr = await users.find().exec();
             let num = usersArr.length;
@@ -94,14 +85,12 @@ class Land{
             }
             //res.send("ss")
     }
-    
     async getall(req: Request, res: Response, next: NextFunction){
       let land = await infoland.find({}).exec();
       const sk =
       "wss://frosty-evocative-mound.bsc-testnet.discover.quiknode.pro/f54fe8b5929be089e24dda43f9d8f7c0ddff920f/";
       const prov = new ethers.providers.WebSocketProvider(sk);
       const contract = new ethers.Contract(erc["address"], erc["abi"], prov);
-      
       const array = new Array();
       for(let i=0; i < land.length; i++){
         //let getLandId = await contract.functions.encodeLandId(21,land[i].x,land[i].y);
@@ -122,16 +111,9 @@ class Land{
         //sawait Object.assign({}, getowner);
         //await land[i].push(getowner);
         //let get = await getowner.reduce((a,v) => ({...a, [v]:v}), {});
-    
       }
       //console.log(array);
       await res.send(array);
     }
-    
-    
-
-
-
-
 }
 module.exports = new Land()

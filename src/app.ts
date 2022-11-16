@@ -3,13 +3,10 @@ import express from 'express'
 //const morgan = require("morgan");
 class App{
     public app: express.Application;
-
     constructor() {
         this.app = express();
-        
         this.config();        
     }
-
     private config(): void{
         // Giúp chúng ta tiếp nhận dữ liệu từ body của request
         this.app.use(bodyParser.json())
@@ -17,6 +14,4 @@ class App{
         //this.app.use(queryParser.urlencoded({ extended: false }));
     }
 }
-
-
 export default new App().app;

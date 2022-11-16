@@ -3,7 +3,7 @@ const users = require('../models/user')
 const owned = require("../models/owned");
 
 class User{
-    add(req: Request, res: Response, next: NextFunction){
+    add(req: Request, res: Response){
         const laddress = req.body.address
         const user = new users({
             address: laddress
@@ -14,13 +14,6 @@ class User{
             res.status(400).json({ message: (e as Error).message });
         }
     }
-
     //get(req: Request, res: Response, next: NextFunction)
-
-
-
-
-
-
 }
 module.exports = new User()

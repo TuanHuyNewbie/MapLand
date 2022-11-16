@@ -18,6 +18,4 @@ const infoland = new Schema({
 
 
 }*/)
-
-
 module.exports = mongoose.model('infoland', infoland)
