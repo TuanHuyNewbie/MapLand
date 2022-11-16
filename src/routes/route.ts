@@ -1,15 +1,10 @@
-const cors = require('cors')
-require('dotenv').config();
-const landRouter = require('./land')
-const userRouter = require('./user')
+import cors from 'cors'
+import route2 from './land' 
+import router1 from './user';
 import app from "../app";
-
-
-
 function route(){
-    //app.use('/hash', cors(), newsRouter);
-    app.use('/land', cors(), landRouter);
-    app.use('/user', cors(), userRouter);
+    app.use('/land', cors(), route2);
+    app.use('/user', cors(), router1);
 }
 
-module.exports = route;
+export default route;
