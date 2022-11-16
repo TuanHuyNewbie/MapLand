@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 const worlds =require('../models/world');
-const lands = require('../models/infoland');
+//const lands = require('../models/infoland');
 
 class World{
     async get_all(req: Request, res: Response, next: NextFunction): Promise<void>{

@@ -1,6 +1,6 @@
-const cors1 = require('cors')
+let cors1 = require('cors')
 const UserController = require('../app/controllers/UserController')
-const express1 = require('express');
+let express1 = require('express');
 const router1 = express1.Router();
 
 router1

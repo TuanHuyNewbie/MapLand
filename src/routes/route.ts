@@ -1,7 +1,7 @@
-const cors = require('cors')
+let cors = require('cors')
 require('dotenv').config();
-const landRouter = require('./land')
-const userRouter = require('./user')
+let landRouter = require('./land')
+let userRouter = require('./user')
 import app from "../app";
 
 

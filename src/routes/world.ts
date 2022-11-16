@@ -1,8 +1,8 @@
-const cors = require('cors')
+let cors = require('cors')
 
 const WorldController = require('../app/controllers/WorldController')
-const express = require('express');
-const router = express.Router();
+let express = require('express');
+let router = express.Router();
 
 router
     .get('/getall', cors(), WorldController.get_all)
